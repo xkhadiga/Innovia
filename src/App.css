@@ -1,0 +1,105 @@
+
+#root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all .3 ease;
+  --v-lightblue: aliceblue;
+  --d-gray:rgb(44, 44, 44);
+  --v-lightgray:#edede9;
+  --gray:rgb(184, 180, 180);
+}
+/*Sidebar *********** */
+.sidebar{
+  /* background-color: var(--v-lightblue); */
+  background-color: var(--v-lightgray);
+
+  color: var(--d-gray);
+  font-family: 'Nunito', serif;
+  width: 2.5rem;
+  transition: width .3s ease-in-out ;
+}
+.expanded{
+  width: 12rem;
+}
+.sidebar button{
+  cursor: pointer;
+}
+.sidebar .logo{
+  /* border: 1px solid var(--d-gray); */
+}
+
+/*Nav *********** */
+.navbar{
+  background-color: var(--v-lightgray);
+  font-family: 'Nunito', serif;
+  color: var(--d-gray);
+}
+.navbar button{
+  cursor: pointer;
+}
+.logo{
+  color: var(--d-gray);
+}
+.nav-search{
+  transition: width .3s ease-in-out ;
+}
+.search-on{
+  width: 20rem;
+  padding: .3rem;
+  padding-left: .5rem;
+}
+.divider{
+  color: var(--gray);
+}
+/*MAIN Slider********************/
+.slides{
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: slides 7s alternate-reverse infinite;
+}
+@keyframes  slides {
+  0% {background: url(./assets/shopping4.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  50% {background: url(./assets/shopping2.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  100% {background: url(./assets/shopping3.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+.slides h1{
+  font-family: 'Kanit', serif;
+
+}
+/*Circles Slider*/
+.circles-container{
+  scroll-behavior: smooth;
+  transition: all .3s ease;
+}
+.circles-wrapper{
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+
+
+
+}
+.circles-wrapper::-webkit-scrollbar{
+  display: none;
+}
+.circle-item{
+  background-color: rgb(157, 189, 186);
+  color: white;
+}
+.circles-btn{
+  color: rgb(92, 90, 90);
+}
