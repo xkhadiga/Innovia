@@ -14,7 +14,7 @@ function Sidebar() {
 
   return (
     <nav id='nav'
-      className='sidebar flex flex-col items-start justify-center bg-amber-200 h-[90vh] rounded-lg overflow-hidden relative '>
+      className='sidebar sticky flex flex-col items-start justify-center bg-amber-200 h-[90vh] rounded-lg overflow-hidden  '>
       {/* <span className='mx-auto my-5'>
         <img className='w-5' src={logo} alt="Store logo" />
       </span> */}

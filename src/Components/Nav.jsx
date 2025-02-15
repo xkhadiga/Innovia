@@ -2,6 +2,7 @@ import React from 'react'
 import logo from '../assets/logo.png'
 import { IoMenu, IoHome, IoSearchSharp, IoCart, IoHeart, IoSettings } from "react-icons/io5";
 import { FaCircleUser, FaCartShopping } from "react-icons/fa6";
+import { Link } from 'react-router-dom';
 
 function Nav() {
     const handle_search=() => {
@@ -30,12 +31,15 @@ function Nav() {
                     </button>
                 </div>
                 <span className='divider'>|</span>
-                <button className='flex items-center justify-center gap-1'>
+
+                <Link 
+                to='/favorites' 
+                className='flex items-center justify-center gap-1'>
                     <span>favorites</span>
                     <span>
                         <IoHeart />
                     </span>
-                </button>
+                </Link>
                 <span className='divider'>|</span>
                 <button  className='flex items-center justify-center gap-1'>
                     <span>cart</span>
