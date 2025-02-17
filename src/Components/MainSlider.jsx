@@ -9,7 +9,7 @@ function MainSlider() {
 
 
   return (
-    <div className="flex w-full h-[70vh] bg-blue-100  rounded-lg">
+    <div className="flex w-full h-[70vh]   rounded-lg">
       <div className='slides w-full h-full rounded-lg flex justify-center items-center'>
         <h1 className=' text-5xl sm:text-6xl font-bold text-white'>
         Shop Smarter, Live Better!

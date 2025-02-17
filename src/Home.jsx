@@ -9,6 +9,9 @@ import Section from './Sections/Section'
 import axios from 'axios'
 import SmallSection from './Sections/SmallSection'
 import Up from './Components/Up'
+import { FaCaretSquareUp } from 'react-icons/fa'
+
+
 
 
 /* ADS */
@@ -19,44 +22,60 @@ import ad4 from './assets/ad4.jpg'
 
 function Home() {
 
-  /*API's */
-  const [FirstData, setFirstData]=useState([]);
-  const [SecondData, setSecondData]=useState([]);
-  const [ThirdData, setThirdData]=useState([]);
-  const [FourthData, setFourthData]=useState([]);
-  const [FifthData, setFifthData]=useState([]);
-  const [SixthData, setSixthData]=useState([]);
-  const [SeventhData, setSeventhData]=useState([]);
+  /*UP Button */
+  const [visible, setVisible] = useState(false);
 
-const handle_api1 = async () => {
-  const response = await axios.get('https://dummyjson.com/products/category/kitchen-accessories');
-  setFirstData(response.data.products)
+  const handle_visible = () => {
+    if (window.scrollY > 300) { setVisible(true) }
+    else { setVisible(false) }
   }
-const handle_api2 = async () => {
-  const response = await axios.get('https://dummyjson.com/products/category/groceries');
-  setSecondData(response.data.products)
+  useEffect(() => {
+    window.addEventListener("scroll", handle_visible);
+    return () => { window.removeEventListener("scroll", handle_visible) 
+
+    };
+  }, []);
+
+
+
+  /*API's */
+  const [FirstData, setFirstData] = useState([]);
+  const [SecondData, setSecondData] = useState([]);
+  const [ThirdData, setThirdData] = useState([]);
+  const [FourthData, setFourthData] = useState([]);
+  const [FifthData, setFifthData] = useState([]);
+  const [SixthData, setSixthData] = useState([]);
+  const [SeventhData, setSeventhData] = useState([]);
+
+  const handle_api1 = async () => {
+    const response = await axios.get('https://dummyjson.com/products/category/kitchen-accessories');
+    setFirstData(response.data.products)
   }
-const handle_api3 = async () => {
-  const response = await axios.get('https://dummyjson.com/products/category/smartphones');
-  setThirdData(response.data.products)
+  const handle_api2 = async () => {
+    const response = await axios.get('https://dummyjson.com/products/category/groceries');
+    setSecondData(response.data.products)
   }
-const handle_api4 = async () => {
-  const response = await axios.get('https://dummyjson.com/products/category/beauty');
-  setFourthData(response.data.products)
+  const handle_api3 = async () => {
+    const response = await axios.get('https://dummyjson.com/products/category/smartphones');
+    setThirdData(response.data.products)
   }
-const handle_api5 = async () => {
-  const response = await axios.get('https://dummyjson.com/products/category/sports-accessories');
-  setFifthData(response.data.products)
+  const handle_api4 = async () => {
+    const response = await axios.get('https://dummyjson.com/products/category/beauty');
+    setFourthData(response.data.products)
   }
-const handle_api6 = async () => {
-  const response = await axios.get('https://dummyjson.com/products/category/mens-shirts');
-  setSixthData(response.data.products)
+  const handle_api5 = async () => {
+    const response = await axios.get('https://dummyjson.com/products/category/sports-accessories');
+    setFifthData(response.data.products)
   }
-const handle_api7 = async () => {
-  const response = await axios.get('https://dummyjson.com/products/category/mens-watches');
-  setSeventhData(response.data.products)
+  const handle_api6 = async () => {
+    const response = await axios.get('https://dummyjson.com/products/category/mens-shirts');
+    setSixthData(response.data.products)
   }
-  useEffect(()=>{
+  const handle_api7 = async () => {
+    const response = await axios.get('https://dummyjson.com/products/category/mens-watches');
+    setSeventhData(response.data.products)
+  }
+  useEffect(() => {
     handle_api1();
     handle_api2();
     handle_api3();
@@ -64,29 +83,34 @@ const handle_api7 = async () => {
     handle_api5();
     handle_api6();
     handle_api7();
-},[])
+  }, [])
   return (
-    <div className='relative overflow-hidden  max-w-[100vw]'>
-      <Up />
-      <Nav />
-      <div className='flex '>
-        <div className='aflex-shrink-0 '>
-          <Sidebar />
-        </div>
-        <div className='flex-1 mx-1 lg:mx-2 w-[85%] lg:w-[95%] flex flex-col'>
+    <>
+
+    <div className='home relative overflow-hidden my-2  max-w-[100vw] '>
+      
+      {visible && (
+        <Up />
+      )}
+      <div className='flex  '>
+        {/* <div className='flex-shrink-0 relative '>
+
+        </div> */}
+        <div className='flex-1 mx-1 lg:mx-2 w-[85%] lg:w-[95%] flex flex-col '>
           <MainSlider />
           <CircleCard />
-          <Ad ad1={ad1} />
           <Section data={FirstData} category='Kitchen Accessories' />
           <Ad ad1={ad2} />
           <Section data={SecondData} category='Groceries' />
           <Ad ad1={ad3} />
-          <Section data={ThirdData} category='Smartphones'/>
+          <Section data={ThirdData} category='Smartphones' />
           <Ad ad1={ad4} />
-          <SmallSection data={FourthData} category='Beauty'/>
-          <SmallSection data={SixthData} category='Mens Wear'/>
-          <Section data={FifthData} category='Sports Accessories'/>
-          <SmallSection data={SeventhData} category='Mens Watches'/>
+          <SmallSection data={FourthData} category='Beauty' />
+          <SmallSection data={SixthData} category='Mens Wear' />
+          <Ad ad1={ad1} />
+
+          <Section data={FifthData} category='Sports Accessories' />
+          <SmallSection data={SeventhData} category='Mens Watches' />
 
 
         </div>
@@ -96,6 +120,7 @@ const handle_api7 = async () => {
 
 
     </div>
+    </>
   )
 }
 

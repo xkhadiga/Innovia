@@ -14,25 +14,29 @@
   --d-gray: #343d39;
   scroll-behavior: smooth;
 }
+
 /*Sidebar *********** */
 .sidebar{
   /* background-color: var(--v-lightblue); */
   background-color: var(--v-lightgray);
-
   color: var(--d-gray);
   font-family: 'Nunito', serif;
-  width: 2.5rem;
-  transition: width .3s ease-in-out ;
+  /* width: 2.5rem; */
+  height: 90vh;
+  transition: height .3s ease-in-out ;
+  box-shadow: 0 0 5px rgb(174, 182, 179);
 }
 .expanded{
-  width: 12rem;
+  height: 2.5rem;
+  
+ /* width: 12rem; */
 }
 .sidebar button{
   cursor: pointer;
 }
-.sidebar .logo{
-  /* border: 1px solid var(--d-gray); */
-}
+/* .sidebar .logo{
+  border: 1px solid var(--d-gray);
+} */
 
 /*Nav *********** */
 .navbar{
@@ -173,15 +177,36 @@ cursor: pointer;
 
 .card-btn{
   background-color: black;
+
   color: white;
   cursor: pointer;
+  box-shadow: 0 2px 8px rgb(71, 69, 69);
 }
+
 .card-btn:hover{
   background-color: rgb(0, 0, 0, .9);
-
+}
+.card-btn:active{
+  background-color: black;
 }
 /* UP *******************/
 .up-btn{
   color: var(--mint);
   cursor: pointer;
 }
+/*Shoppin Cart*/
+/**/
+/* .tmc{
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+.tm{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+} */
