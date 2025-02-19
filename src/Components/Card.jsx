@@ -5,12 +5,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { add_to_cart, remove_from_cart } from '../Redux/cartSlice';
 import { toast } from 'react-toastify';
 import { FaMinus , FaPlus} from "react-icons/fa6";
-import mytag from '../assets/tag.gif'
+import mytag from '../assets/tag2.gif'
+import { IoBagCheckOutline, IoBagCheck} from "react-icons/io5";
+import { TbShoppingBagCheck } from "react-icons/tb";
+import { useNavigate } from 'react-router-dom';
+
+
 
 
 
 
 function Card({ product }) {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const favorites = useSelector(state => state.favorites);
     const isFavorite = favorites.some(item => item.id === product.id)
@@ -29,10 +35,11 @@ function Card({ product }) {
     const [tag, setTag]= useState(false);
     const [openAdd, setOpenAdd] = useState(false);
 
+
     const handle_add = () => {
         dispatch(add_to_cart(product));
         setOpenAdd(true);
-        toast.success(`Added ${product.title} to your cart`, { position: "bottom-left", autoClose: 2000 });
+        toast.success( `Added ${product.title} to your cart`, { position: "bottom-left", autoClose: 2000 });
 
     };
 
@@ -54,10 +61,11 @@ function Card({ product }) {
 
 
 return (
-    <div className="card border rounded-xl m-2 flex flex-col justify-around text-nowrap w-[20rem]  relative  p-2">
+    <div     
+    className="card border rounded-xl m-2 flex flex-col justify-around text-nowrap w-[20rem]  relative  p-2">
         {tag && (
-            <div className='w-14 absolute top-0 left-2'>
-                <img src={mytag} alt="tag" />
+            <div className='text-2xl text-[#1f9238] p-1 rounded-full absolute top-20 right-7 '>
+                <TbShoppingBagCheck />
             </div>
             
         )}
@@ -74,10 +82,13 @@ return (
 
         </button>
 
-        <img className='w-full h-auto object-cover rounded-lg' src={product.thumbnail} alt="product image" />
+        <img onClick={()=> navigate(`/product/${product.title}`, { state: {product} })}
+        className='w-full h-auto object-cover rounded-lg' src={product.thumbnail} alt="product image" />
         {/* Title & Shipping info */}
         <div className='flex flex-col w-full my-2'>
-            <h3 className='font-extrabold text-lg text-center'>{product.title}</h3>
+            <h3 
+            onClick={()=> navigate(`/product/${product.title}`, { state: {product} })}
+            className='font-extrabold text-lg text-center'>{product.title}</h3>
 
             {/* Tags *************** */}
             <div className='flex flex-wrap mx-auto items-center gap-3 my-3'>

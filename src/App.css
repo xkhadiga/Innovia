@@ -174,6 +174,18 @@ cursor: pointer;
 .tag2{
   background-color: #d4e7de;
 }
+.tag3{
+  background-color: #f7f4d1;
+}
+.tag4{
+  background-color: #d2e4f3;
+}
+.tag5{
+  background-color: #f3dcd2;
+}
+.tag-w{
+  background-color: white;
+}
 
 .card-btn{
   background-color: black;
@@ -195,18 +207,22 @@ cursor: pointer;
   cursor: pointer;
 }
 /*Shoppin Cart*/
-/**/
-/* .tmc{
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  align-items: center;
-  justify-content: center;
-  justify-items: center;
-}
-.tm{
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  justify-self: center;
-} */
+
+ .subtotal{
+  width: 2rem;
+  height: 2rem;
+  background-color: white;
+  overflow:hidden;
+  border: none;
+
+  transition: width .3s ease-in-out;
+  color: black;
+ }
+ .subtotalon{
+  width: 20vw;
+  height: 10vw;
+ }
+ .sub-btn {
+  background-color: white;
+
+ }

@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react';
 import Cart from './Pages/Cart';
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
-
+import Item from './Pages/Item';
 
 function App() {
 const [visible, setVisible] = useState(false);
@@ -40,6 +40,7 @@ return () => {document.removeEventListener("scroll" , handle_visible)}
         <Route path='/' element={<Home />} />
         <Route path='/favorites' element={<Favorites />} />
         <Route path='/cart-items' element={<Cart />} />
+        <Route path='/product/:productName' element={<Item />} />
       </Routes>
       
 
