@@ -88,7 +88,7 @@ return (
         <div className='flex flex-col w-full my-2'>
             <h3 
             onClick={()=> navigate(`/product/${product.title}`, { state: {product} })}
-            className='font-extrabold text-lg text-center'>{product.title}</h3>
+            className='font-extrabold text-lg text-center text-wrap'>{product.title}</h3>
 
             {/* Tags *************** */}
             <div className='flex flex-wrap mx-auto items-center gap-3 my-3'>

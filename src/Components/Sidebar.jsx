@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { IoMenu, IoHome, IoSearchSharp, IoCart, IoHeart, IoSettings } from "react-icons/io5";
 import { FaUser } from "react-icons/fa6";
 import logo from '../assets/logo.png'
@@ -18,10 +18,38 @@ function Sidebar() {
     document.getElementById('nav').classList.toggle('expanded');
   }
 
+  const [ searchToggle, setSearchToggle] = useState(false);
+  const [keyword, setKeyword] = useState('');
+  const handle_searchToggle = () => {
+    setSearchToggle(true);
+  }
+  const search_keydown = (e) => {
+    if (e.key === 'Enter') {
+      setSearchToggle(false);
+      navigate(`/search/${keyword}`, {state: {keyword}})
+    }
+  }
   return (
-
+    <div className='relative'>
+          {searchToggle && (
+          <div 
+          onClick={()=> setSearchToggle(false)}
+          className='bg-[rgb(119,119,119,.5)] fixed top-0 bottom-0 right-0 left-0 w-full z-50 flex items-center justify-center'>
+            <div 
+            onClick={(e) => e.stopPropagation()}
+            className=' bg-[rgb(255,255,255,.4)] w-[70%] p-6 rounded-lg drop-shadow-2xl backdrop-blur-sm mx-auto'>
+              <input 
+              onChange={(e)=> setKeyword(e.target.value)}
+              onKeyDown={search_keydown}
+              className='sidebar-search p-3 w-full pl-6 outline-amber-100 bg-white rounded-full '
+              placeholder='Search...'
+              type="text" />
+            </div>
+          </div>
+        )}
     <nav id='nav'
-      className='sidebar fixed flex flex-col items-start justify-center  rounded-lg overflow-hidden top-10 z-40'>
+      className='sidebar fixed flex flex-col items-start justify-center rounded-lg overflow-hidden top-10 z-40'>
+
       <span className='mx-auto my-5'>
         <img className='w-5' src={logo} alt="Store logo" />
       </span>
@@ -32,6 +60,7 @@ function Sidebar() {
       </button>
 
       <div className='links-container h-full w-10  flex flex-col my-5 sm:my-10 items-center justify-between gap-2'>
+        
         <div className='flex flex-col items-start justify-start gap-2 w-10 '>
 
           <Link to="section1" smooth={true} duration={500}>
@@ -41,7 +70,9 @@ function Sidebar() {
               {/* <span className='border-gray-400 border-b w-32'>Home</span> */}
             </button>
           </Link>
-          <button className=' flex  items-center gap-4 justify-center'>
+          <button 
+          onClick={()=> handle_searchToggle()}
+          className=' flex  items-center gap-4 justify-center'>
             <span className='p-2 text-xl'><IoSearchSharp /></span>
             {/* <span className='border-gray-400 border-b  w-32'>
               Search
@@ -83,6 +114,8 @@ function Sidebar() {
       </div>
 
     </nav>
+
+    </div>
   )
 }
 

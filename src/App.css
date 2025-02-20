@@ -34,6 +34,9 @@
 .sidebar button{
   cursor: pointer;
 }
+/* .sidebar-search{
+  z-index:100;
+} */
 /* .sidebar .logo{
   border: 1px solid var(--d-gray);
 } */
@@ -60,6 +63,13 @@
 }
 .divider{
   color: var(--gray);
+}
+
+.nav-search:focus{
+  box-shadow: 0 0 5px #72dfac;
+  caret-color: #72dfac;
+  outline: 2px solid #72dfac;
+ 
 }
 /*MAIN Slider********************/
 .slides{
@@ -94,10 +104,13 @@
 .circles-container{
   scroll-behavior: smooth;
   transition: all .3s ease;
+  overflow-y: hidden;
 }
 .circles-wrapper{
   scrollbar-width: none;
   scroll-snap-type: x mandatory;
+  overflow-y: hidden;
+
   /* background-color: var(--v-lightgray); */
 
 }
@@ -107,17 +120,36 @@
 .circle-item{
   background-color: rgb(157, 189, 186);
   background-color: var(--mint);
+  background-color: rgb(121, 211, 202);
+  background-color: #cbc0d3;
   color: white;
   transition: all .2s ease;
   scroll-snap-align: start;
   cursor: pointer;
-
-
 }
 .circle-item:hover{
   scale: 1.05;
   transition: all .2s ease;
+}
+ /* spinner */
+ .loader-x {
+  position: relative;
+}
+.loader-x:before , .loader-x:after{
+  content: '';
+  border-radius: 50%;
+  position: absolute;
+  inset: 0;
+  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.3) inset;
+}
+.loader-x:after {
+  box-shadow: 0 4px 0 rgb(208, 155, 233) inset;
+  animation: rotate 2s linear infinite;
+}
 
+@keyframes rotate {
+  0% {  transform: rotate(0)}
+  100% { transform: rotate(360deg)}
 }
 .circles-btn{
   color: rgb(92, 90, 90);
@@ -226,3 +258,71 @@ cursor: pointer;
   background-color: white;
 
  }
+
+/* LOADER */
+
+.mainloader {
+  width: 80px;
+  height: 80px;
+  margin: auto;
+  position: relative;
+}
+
+.mainloader:before {
+  content: '';
+  width: 80px;
+  height: 5px;
+  background: #f0808050;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  border-radius: 50%;
+  animation: shadow324 0.5s linear infinite;
+}
+
+.mainloader:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: #f08080;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 4px;
+  animation: jump7456 0.5s linear infinite;
+}
+
+@keyframes jump7456 {
+  15% {
+    border-bottom-right-radius: 3px;
+  }
+
+  25% {
+    transform: translateY(9px) rotate(22.5deg);
+  }
+
+  50% {
+    transform: translateY(18px) scale(1, .9) rotate(45deg);
+    border-bottom-right-radius: 40px;
+  }
+
+  75% {
+    transform: translateY(9px) rotate(67.5deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(90deg);
+  }
+}
+
+@keyframes shadow324 {
+
+  0%,
+    100% {
+    transform: scale(1, 1);
+  }
+
+  50% {
+    transform: scale(1.2, 1);
+  }
+}

@@ -11,6 +11,9 @@ import Cart from './Pages/Cart';
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import Item from './Pages/Item';
+import Search from './Pages/Search';
+import Category from './Pages/Category';
+import Loader from './Components/Loader';
 
 function App() {
 const [visible, setVisible] = useState(false);
@@ -25,7 +28,17 @@ useEffect(()=>{
 document.addEventListener("scroll" , handle_visible)
 return () => {document.removeEventListener("scroll" , handle_visible)}
 },[])
+
+const [loader,setLoader]= useState(true)
+
+useEffect(()=>{
+ setTimeout(()=>{
+  setLoader(false);
+ }, 3000 )
+},[])
   return (
+    <>
+    {loader ? <Loader /> :   
     <>
           <ToastContainer />              
 
@@ -35,15 +48,18 @@ return () => {document.removeEventListener("scroll" , handle_visible)}
       {visible && (
        <Sidebar />
       )}    
-
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/favorites' element={<Favorites />} />
         <Route path='/cart-items' element={<Cart />} />
         <Route path='/product/:productName' element={<Item />} />
+        <Route path='/search' element={<Search />} />
+        <Route path='/search/:productName' element={<Search />} />
+        <Route path='/category' element={<Category />} />
+        <Route path='/category/:categoryName' element={<Category />} />
       </Routes>
-      
-
+      </>
+    }
     </>
   )
 }
