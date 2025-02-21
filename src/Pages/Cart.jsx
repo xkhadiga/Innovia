@@ -5,6 +5,7 @@ import EmptyCt from './EmptyCt'
 import { add_to_cart, remove_from_cart, remove_item, clear_cart } from '../Redux/cartSlice'
 import { FaMinus, FaPlus, FaTrashCan, FaCashRegister } from "react-icons/fa6";
 import { TbCashRegister } from "react-icons/tb";
+import Payment from '../Components/Payment'
 
 
 
@@ -15,14 +16,27 @@ function Cart() {
     const dispatch = useDispatch();
     const rdxtotal = useSelector(state => state.cart.total)
     const [currentTotal, setCurrentTotal] = useState(0)
-    // useEffect(()=> {
-    //     setCurrentTotal(rdxtotal);
-    // },[rdxtotal])
+    
+    const [openPayment, setOpenPayment] = useState(false)
+    const handlePayment = () => {
+        setOpenPayment(true)       
+    }
     const cartItems = useSelector(state => state.cart.items);
     if (cartItems.length === 0) { return <EmptyCt /> }
     else return (
         <>
+                        {openPayment && (
+                    <div 
+                    onClick={()=>setOpenPayment(false)}
+                    className='fixed top-0 left-0 w-full h-full bg-[rgb(0,0,0,.5)]  z-50 flex items-center justify-center'>
+                        <div onClick={(e)=>e.stopPropagation()} >
+                        <Payment />
+                        </div>
+                    </div>
+                    
+                )}
             <section className='main-section relative flex flex-col justify-center my-3 sm:my-10 rounded-xl p-2 mx-auto w-[95%]'>
+
                 <div className='items-container flex flex-col justify-center items-center p-10'>
                     <h1 className='text-center text-3xl my-8 font-bold'>Shopping Cart</h1>
                     <div className='hidden sm:flex justify-around items-center my-3  w-full  border-b pb-5 font-semibold'>
@@ -98,7 +112,9 @@ function Cart() {
                         <span className='font-bold'>Subtotal:</span>
                         <span>${(rdxtotal).toFixed(2)} </span>
                     </div>
-                    <button className='card-btn p-2 rounded-full px-4 my-4'>
+                    <button 
+                    onClick={()=> handlePayment()}
+                    className='card-btn p-2 rounded-full px-4 my-4'>
                         Proceed to Buy
                     </button>
                 </div>

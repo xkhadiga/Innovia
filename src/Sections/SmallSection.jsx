@@ -7,7 +7,7 @@ function SmallSection( {data, category}  ) {
     <section className='main-section flex flex-col justify-center my-3 rounded-xl p-2 mx-auto w-[95%]'>
       <div className='section-header flex items-center justify-between text-xl p-3 font-bold cursor-pointer'>
       <h1>{category}</h1>
-      <h1>Browse all</h1>
+      <button>Browse all</button>
       </div>
 
       <div className='flex flex-wrap justify-center '>

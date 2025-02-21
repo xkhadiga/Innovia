@@ -22,21 +22,19 @@ function Search() {
                 console.error(err);
             }
         }
-        handle_api();
+        if (keyword) handle_api();
     }, [keyword]);
 
 
     return (
         <div>
-            <section className='main-section flex flex-col justify-center my-3 rounded-xl p-2 mx-auto w-[95%]'>
+            <section className='main-section flex flex-col justify-center my-3 rounded-xl mx-auto w-[95%] '>
                 <div className='flex flex-wrap justify-center '>
-                    { currentData.length > 0   ?  currentData.map((product) =>
+                    { currentData.length > 0   ?  (currentData.map((product) =>
                         <Card product={product} key={product.id} />
-                    ) :
-                    <div>
-                    <h2 className="bg-black ext-2xl font-semibold text-gray-700">Oops! No results found.</h2>
-                    <p className="text-gray-500 mt-2">Try a different keyword or check your spelling.</p>
-              </div>               
+                    ) )
+                    :
+                    (<EmptySrch />  )           
                 }
 
                 </div>

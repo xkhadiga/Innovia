@@ -1,16 +1,12 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import Sidebar from './Components/Sidebar'
-import Nav from './Components/Nav'
 import MainSlider from './Components/MainSlider'
-import CircleCard from './Components/CircleCard'
 import Ad from './Components/Ad'
 import Section from './Sections/Section'
 import axios from 'axios'
 import SmallSection from './Sections/SmallSection'
 import Up from './Components/Up'
-import { FaCaretSquareUp } from 'react-icons/fa'
-
+import Circles from './Components/Circles'
 
 
 
@@ -86,7 +82,6 @@ function Home() {
   }, [])
   return (
     <>
-
     <div className='home relative overflow-hidden my-2  max-w-[100vw] '>
       
       {visible && (
@@ -98,7 +93,7 @@ function Home() {
         </div> */}
         <div className='flex-1 mx-1 lg:mx-2 w-[85%] lg:w-[95%] flex flex-col '>
           <MainSlider />
-          <CircleCard />
+          <Circles />
           <Section data={FirstData} category='Kitchen Accessories' />
           <Ad ad1={ad2} />
           <Section data={SecondData} category='Groceries' />

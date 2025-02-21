@@ -14,11 +14,12 @@ import Item from './Pages/Item';
 import Search from './Pages/Search';
 import Category from './Pages/Category';
 import Loader from './Components/Loader';
+import Payment from './Components/Payment';
 
 function App() {
 const [visible, setVisible] = useState(false);
 const handle_visible=() => {
-  if (  window.scrollY > 700){
+  if (  window.scrollY > 100){
     setVisible(true) }
     else {
       setVisible(false)
@@ -56,6 +57,7 @@ useEffect(()=>{
         <Route path='/search' element={<Search />} />
         <Route path='/search/:productName' element={<Search />} />
         <Route path='/category' element={<Category />} />
+        <Route path='/payment' element={<Payment />} />
         <Route path='/category/:categoryName' element={<Category />} />
       </Routes>
       </>
