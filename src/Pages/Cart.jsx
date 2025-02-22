@@ -72,7 +72,7 @@ function Cart() {
                                 ${product.price}
                             </h3>
                             <div className='flex-1 flex items-center justify-center'>
-                                <div id='cart-btns' className=' card-btn2 flex flex-col items-center sm:flex-row p-1 sm:p-2 sm:px-6 font-semibold gap-2 shadow-[#cecbcb] shadow-sm '>
+                                <div id='cart-btns' className=' card-btn2 flex flex-col items-center sm:flex-row p-1 sm:p-2 sm:px-6 font-semibold gap-2  '>
                                     <button
                                         onClick={() => dispatch(remove_from_cart(product))
                                         }
@@ -122,11 +122,11 @@ function Cart() {
                     <button
                         onClick={() => dispatch(clear_cart())}
                         className=' '>
-                        <span className='font-semibold text-xl cursor-pointer p-2 px-4 shadow-[#4e4d4d] shadow-sm rounded-lg'>
+                        <span className='clear-items-btn font-semibold text-xl cursor-pointer p-2 px-4 shadow-sm rounded-lg'>
                             Clear Items
                         </span>
                     </button>
-                    <div className='p-2 flex gap-2 items-center '>
+                    <div className='total-span p-2 flex gap-2 items-center '>
                         <span className='font-bold  text-xl'>Total:</span>
                         <span>
                             ${(rdxtotal).toFixed(2)}

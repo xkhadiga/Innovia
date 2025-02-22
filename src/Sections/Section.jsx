@@ -6,6 +6,7 @@ import {useState, useEffect} from 'react';
 function Section({ data, category }) {
 
   const navigate = useNavigate();
+  // Browse all button
   const [productName, setProductName] = useState('');
 
   useEffect(() => {

@@ -82,7 +82,7 @@ function Home() {
   }, [])
   return (
     <>
-    <div className='home relative overflow-hidden my-2  max-w-[100vw] '>
+    <div className='relative overflow-hidden my-2  max-w-[100%] '>
       
       {visible && (
         <Up />

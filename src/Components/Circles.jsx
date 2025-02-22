@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import shop from '../assets/shopping.jpg'
-import shop2 from '../assets/shopping2.jpg'
-import { useRef, useEffect } from 'react'
+
+import { useEffect } from 'react'
 import axios from 'axios'
 import { MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight } from 'react-icons/md'
 import { useNavigate } from 'react-router-dom'
@@ -13,14 +12,12 @@ const [categories, setCategories]=useState([]);
 const handle_api = async () => {
   const response = await axios.get('https://dummyjson.com/products/categories');
   setCategories(response.data)
-
   }
   useEffect(()=>{
     handle_api();
-
 },[])
-
 const navigate = useNavigate();
+
 // handle sliding ******
 const [startIndex, setStartIndex] = useState(0);
 const itemsPerPage = 7;
@@ -30,7 +27,6 @@ const nextSlide = () => {
     setStartIndex(startIndex + itemsPerPage);
   }
 };
-
 const prevSlide = () => {
   if (startIndex > 0) {
     setStartIndex(startIndex - itemsPerPage);
@@ -49,7 +45,7 @@ className='circles-container flex  my-2  relative  w-[95%] mx-auto overflow-hidd
       </button>
 
 <div 
-className='circles-wrapper overflow-x-scroll flex w-full rounded-full  items-center justify-center '>
+className='circles-wrapper flex w-full rounded-full  items-center justify-center p-3'>
   {categories.slice(startIndex, startIndex + itemsPerPage).map((item, index) => 
   <div key={index}
   onClick={()=> navigate(`/category/${item.slug}` , {state: {name: item.slug} })}

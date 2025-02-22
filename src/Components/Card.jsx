@@ -5,8 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { add_to_cart, remove_from_cart } from '../Redux/cartSlice';
 import { toast } from 'react-toastify';
 import { FaMinus , FaPlus} from "react-icons/fa6";
-import mytag from '../assets/tag2.gif'
-import { IoBagCheckOutline, IoBagCheck} from "react-icons/io5";
 import { TbShoppingBagCheck } from "react-icons/tb";
 import { useNavigate } from 'react-router-dom';
 

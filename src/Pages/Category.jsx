@@ -4,8 +4,10 @@ import axios from 'axios';
 import Card from '../Components/Card';
 
 function Category() {
+    // update url to /category/:categoryName
     const location = useLocation();
     const { categoryName } = useParams();
+    // get data of the category from location state to fetch  
     const name = location.state?.name
     const [data, setData ]= useState([]);
 

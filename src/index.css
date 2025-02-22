@@ -6,6 +6,45 @@
   line-height: 1.5;
   transition: all .3s ease;
   scroll-behavior: smooth;
+  max-width: 100%;
+  background-color: var(--white);
+
+  --v-lightblue: aliceblue;
+  --d-gray:rgb(44, 44, 44);
+  --v-lightgray:#edede9;
+  --gray:rgb(184, 180, 180);
+  --mint:#81b29a;
+  --s-mint:#72dfac;
+  --d-mint:#516d60;
+  --d-gray: #343d39;
+  --white:white;
+  --w-b: rgb(248, 224, 8);
+  --bxshadow:  rgb(174, 182, 179);
+  --card: white;
+  --b-w: black;
+  --stngsmenu-hover:#343d39;
+--acc-menu:white;
+--st-menu-bg:rgb(255,255,255,.4);
+
+}
+.darktheme{
+  --v-lightblue: #0c0c0c;
+  --v-lightgray: #1b1b1b;
+  --d-gray: #f0f0f0;
+  --gray: #636262;
+  --mint:#81b29a;
+  --s-mint:#72dfac;
+  --d-mint:#516d60;
+  --d-gray: #f0f0f0;
+  --white:#1f1e1e;
+  --w-b: rgb(255, 255, 255);
+  --bxshadow:  black;
+  --card :rgb(218, 214, 214);
+  --b-w: white;
+  --stngsmenu-hover:white;
+  --acc-menu:rgb(0,0,0,.9);
+  --st-menu-bg:rgb(0,0,0,.4);
+
 
 
 }

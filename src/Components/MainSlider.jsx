@@ -1,8 +1,4 @@
 import React from 'react';
-import img1 from '../assets/shopping.jpg';
-import img2 from '../assets/shopping2.jpg';
-import img3 from '../assets/shopping3.jpg';
-import img4 from '../assets/shopping4.jpg';
 
 
 function MainSlider() {
