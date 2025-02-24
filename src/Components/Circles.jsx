@@ -49,7 +49,8 @@ className='circles-wrapper flex w-full rounded-full  items-center justify-center
   {categories.slice(startIndex, startIndex + itemsPerPage).map((item, index) => 
   <div key={index}
   onClick={()=> navigate(`/category/${item.slug}` , {state: {name: item.slug} })}
-  className='loader-x circle-item w-35 h-35 min-w-35 min-h-35 rounded-full flex items-center justify-center text-wrap text-center text-xl font-bold mx-1 p-3 ' 
+  className='loader-x circle-item  w-25 h-25 min-w-25 min-h-25 
+  sm:-35 sm:h-35 sm:min-w-35 sm:min-h-35 rounded-full flex items-center justify-center text-wrap text-center text-sm sm:text-lg  font-bold mx-1 p-3 ' 
     > 
      <h1> {item.name} </h1>
     </div> )}

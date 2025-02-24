@@ -4,9 +4,10 @@ import { add_to_favorites, remove_from_favorites } from '../Redux/favoritesSlice
 import { useDispatch, useSelector } from 'react-redux';
 import { add_to_cart, remove_from_cart } from '../Redux/cartSlice';
 import { toast } from 'react-toastify';
-import { FaMinus , FaPlus} from "react-icons/fa6";
+import { FaMinus , FaPlus, FaCartPlus} from "react-icons/fa6";
 import { TbShoppingBagCheck } from "react-icons/tb";
 import { useNavigate } from 'react-router-dom';
+
 
 
 
@@ -60,7 +61,7 @@ function Card({ product }) {
 
 return (
     <div     
-    className="card border rounded-xl m-2 flex flex-col justify-around text-nowrap w-[20rem]  relative  p-2">
+    className="card border rounded-xl m-2 flex flex-col justify-around items-center text-nowrap w-[15rem] sm:w-[20rem]  relative  p-2">
         {tag && (
             <div className='text-2xl text-[#1f9238] p-1 rounded-full absolute top-20 right-7 '>
                 <TbShoppingBagCheck />
@@ -81,25 +82,32 @@ return (
         </button>
 
         <img onClick={()=> navigate(`/product/${product.title}`, { state: {product} })}
-        className='w-full h-auto object-cover rounded-lg' src={product.thumbnail} alt="product image" />
-        {/* Title & Shipping info */}
+        className=' w-[50%] sm:w-full sm:h-auto object-cover rounded-lg' src={product.thumbnail} alt="product image" />
+        {/* Title & Shipping info *************** */}
         <div className='flex flex-col w-full my-2'>
             <h3 
             onClick={()=> navigate(`/product/${product.title}`, { state: {product} })}
-            className='font-extrabold text-lg text-center text-wrap'>{product.title}</h3>
+            className='font-extrabold sm:text-lg text-center text-wrap'>{product.title}</h3>
 
             {/* Tags *************** */}
-            <div className='flex flex-wrap mx-auto items-center gap-3 my-3'>
-                <h3 className='font-bold'>tags:</h3>
-                <div className='flex gap-2 flex-wrap justify-center'>
-                    <span className='tag tag1 p-2 rounded-full'>
-                        {product.tags[0]}
-                    </span>
-                    <span className='tag tag2 p-2 rounded-full'>
-                        {product.tags[1] ? product.tags[1] : product.category}
-                    </span>
-                </div>
-            </div>
+                {product.tags ? (
+                                <div className='flex justify-center flex-wrap mx-auto items-center gap-3 my-3'>
+            <h3 className='font-bold'>tags:</h3>
+
+                                <div className='flex gap-2 flex-wrap justify-center'>
+                                    <span className='tag tag1 p-2 rounded-full'>
+                                        {product.tags[0]}
+                                    </span>
+                                    <span className='tag tag2 p-2 rounded-full'>
+                                        {product.tags[1] ? product.tags[1] : product.category}
+                                    </span>
+                                </div>
+                            </div>
+                ) :
+                (
+                    <span></span>
+                )}
+
             <p className='text-wrap text-center'>{product.warrantyInformation}</p>
         </div>
 
@@ -125,12 +133,21 @@ return (
                     </button>
                 </div>)
                 :
-                (<button
+                (
+                    <>
+                <button
                     id='add-btn'
                     onClick={() => handle_add()}
-                    className='card-btn flex p-2 px-6 rounded-full font-semibold'>
-                    add to cart
-                </button>)
+                    className='card-btn hidden sm:flex p-2 px-6 rounded-full font-semibold'>
+                        add to cart
+                </button>
+                <button 
+                onClick={() => handle_add()}
+                className='flex sm:hidden text-2xl  text-[#13c038] hover:text-[#26502f] cursor-pointer'>
+                            <FaCartPlus /> 
+                            </button>
+                </>
+                )
             }
 
         </div>

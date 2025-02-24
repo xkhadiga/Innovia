@@ -6,11 +6,14 @@ import { useNavigate, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Avatar from "react-avatar-edit";
 import { ThemeContext } from "../Context/ThemeContext";
-import { useContext } from "react";
 import Login from "./Login";
 import Register from "./Register";
+import { useContext } from "react";
+import { LoginContext } from "../Context/LoginContext";
+import { RegisterContext } from "../Context/RegisterContext";
 
 function Nav() {
+
   const [savedImage, setSavedImage] = useState(null);
   // get avatar on start
   useEffect(() => {
@@ -83,15 +86,9 @@ function Nav() {
   //  handle theme
   const { handle_theme, theme } = useContext(ThemeContext);
   // handle login
-  const [login, setLogin] = useState(false);
-  const handle_login = () => {
-    setLogin(!login);
-  };
+const {login, setLogin, handle_login} = useContext(LoginContext);
   // handle register
-  const [register, setRegister] = useState(false);
-  const handle_register = () => {
-    setRegister(!register);
-  };
+  const {register, setRegister, handle_register} = useContext(RegisterContext);
   return (
     <nav className="navbar relative w-full h-[10vh] flex items-center justify-between px-2 sm:px-10 top-0  z-50 ">
       {/* settings toggle ****************** */}
@@ -229,7 +226,7 @@ function Nav() {
         {account && (
           <div className="account-menu absolute top-12 right-5 flex flex-col items-center justify-center w-40 p-4 h-40 rounded-2xl">
             <button
-              onClick={() => handle_login()}
+              onClick={handle_login}
               className="w-full p-2 flex items-center justify-center"
             >
               Login
@@ -248,12 +245,13 @@ function Nav() {
           </div>
         )}
       </div>
-      {login && (
+      { login && (
         <div
           onClick={() => setLogin(false)}
           className=" bg-[rgb(119,119,119,.5)] fixed top-0 bottom-0 right-0 left-0 w-full z-50 flex items-center justify-center "
         >
-          <div onClick={(e) => e.stopPropagation()}>
+          <div className="w-[90%] sm:w-[60%] lg:w-[30%] "
+           onClick={(e) => e.stopPropagation()}>
             <Login />
           </div>
         </div>
@@ -263,7 +261,9 @@ function Nav() {
           onClick={() => setRegister(false)}
           className=" bg-[rgb(119,119,119,.5)] fixed top-0 bottom-0 right-0 left-0 w-full z-50 flex items-center justify-center "
         >
-          <div onClick={(e) => e.stopPropagation()}>
+          <div 
+          className="w-[85%] sm:w-[50%] lg:w-[25%] "
+          onClick={(e) => e.stopPropagation()}>
             <Register />
           </div>
         </div>

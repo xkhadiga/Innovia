@@ -26,6 +26,9 @@
 --acc-menu:white;
 --st-menu-bg:rgb(255,255,255,.4);
 --black-17:#e6e5e5;
+--beige-login:rgb(233, 228, 221);
+--mycircle:#f3b7ad;
+--circleloader:#daaaaa;
 
 }
 .darktheme{
@@ -46,6 +49,11 @@
   --acc-menu:rgb(0,0,0,.9);
   --st-menu-bg:rgb(0,0,0,.4);
   --black-17:#171717;
+  --beige-login:#252525;
+  --mycircle:#9dbdba;
+  --circleloader:#fff5f5;
+
+
 
 }
 
