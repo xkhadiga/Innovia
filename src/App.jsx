@@ -15,6 +15,7 @@ import Search from './Pages/Search';
 import Category from './Pages/Category';
 import Loader from './Components/Loader';
 import Payment from './Components/Payment';
+import {ThemeProvider} from './Context/ThemeContext';
 
 function App() {
 const [visible, setVisible] = useState(false);
@@ -38,7 +39,7 @@ useEffect(()=>{
  }, 3000 )
 },[])
   return (
-    <>
+    <ThemeProvider>
     {loader ? <Loader /> :   
     <>
           <ToastContainer />              
@@ -62,7 +63,7 @@ useEffect(()=>{
       </Routes>
       </>
     }
-    </>
+    </ThemeProvider>
   )
 }
 

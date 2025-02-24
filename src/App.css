@@ -86,6 +86,7 @@
 
 /*MAIN Slider********************/
 .slides{
+  background-color: var(--v-lightgray);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -115,7 +116,7 @@
 }
 
 
-/*Circles Slider*/
+/*Circles Slider ********* */
 .circles-container{
   scroll-behavior: smooth;
   transition: all .3s ease;
@@ -144,7 +145,7 @@
 .circle-item:hover{
   opacity: .8;
   transition: all .2s ease;
-  box-shadow: 0 0 20px rgba(255, 209, 82, .8);
+  box-shadow: 0 0 10px rgba(255, 209, 82, .8);
   transform: translateY(-3px);
 
 }
@@ -543,10 +544,201 @@ color: var(--stngsmenu-hover);
 .settings-menu :first-child{
   border-bottom: 1px solid var(--gray);
 }
-/* Empty */
+/* Empty Components **************** */
 .empty-btn{
   box-shadow: 0 4px 5px var(--bxshadow);
 }
 .empty-con{
   color: var(--b-w);
+}
+/* Theme Toggler ************ */
+.check {
+  position: relative;
+  background: linear-gradient(90deg, #0d022b, #000000);
+  line-height: 0;
+  font-size: 25px;
+  border: none;
+  z-index: 50;
+ }
+ 
+ .check input[type="checkbox"],
+ .check label,
+ .check label::before,
+ .check label::after {
+  appearance: none;
+  display: inline-block;
+  font-size: inherit;
+  border-radius: 1em;
+  border: 0;
+  transition: .35s ease-in-out;
+  box-sizing: border-box;
+  cursor: pointer;
+  z-index: 50;
+
+ }
+ 
+ .check {
+  appearance: none;
+  display: inline-block;
+  border-radius: 1em;
+  border: 0;
+  transition: .35s ease-in-out;
+  box-sizing: border-box;
+  cursor: pointer;
+  z-index: 50;
+
+ }
+ 
+ .check label {
+  width: 2.2em;
+  height: 1em;
+  background: #d7d7d7;
+  overflow: hidden;
+  z-index: 50;
+
+ }
+ 
+ .check input[type="checkbox"] {
+  position: absolute;
+  z-index: 1;
+  width: .8em;
+  height: .8em;
+  top: .1em;
+  left: .1em;
+  background: linear-gradient(45deg, #dedede, #ffffff);
+  box-shadow: 0 6px 7px rgba(0,0,0,0.3);
+  outline: none;
+  z-index: 50;
+
+ }
+ 
+ .check input[type="checkbox"]:checked {
+  left: 1.3em;
+ }
+ 
+ .check input[type="checkbox"]:checked + label {
+  background: transparent;
+ }
+ 
+ .check label::before,
+ .check label::after {
+  content: "· ·";
+  position: absolute;
+  overflow: hidden;
+  left: .50em;
+  top: .5em;
+  height: 1em;
+  letter-spacing: -.04em;
+  color: #9b9b9b;
+  font-family: "Times New Roman", serif;
+  z-index: 2;
+  font-size: .6em;
+  border-radius: 0;
+  transform-origin: 0 0 -.5em;
+  backface-visibility: hidden;
+  z-index: 50;
+
+ }
+ 
+ .check label::after {
+  content: "?";
+  top: .65em;
+  left: .6em;
+  height: .1em;
+  width: .35em;
+  font-size: .2em;
+  transform-origin: 0 0 -.4em;
+  z-index: 50;
+
+ }
+ 
+ .check input[type="checkbox"]:checked + label::before,
+ .check input[type="checkbox"]:checked + label::after {
+  left: 2.55em;
+  top: .4em;
+  line-height: .1em;
+  transform: rotateY(360deg);
+  z-index: 50;
+
+ }
+ 
+ .check input[type="checkbox"]:checked + label::after {
+  height: .16em;
+  top: .55em;
+  left: 2.6em;
+  font-size: .6em;
+  line-height: 0;
+  z-index: 50;
+
+ }
+ /* Login Form ************** */
+ .form-k {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-bottom: 0.4em;
+  background-color: var(--black-17);
+  border-radius: 25px;
+  transition: .4s ease-in-out;
+}
+
+.form-k:hover {
+  transform: scale(1.02);
+  border: 1px solid black;
+}
+
+#heading {
+  text-align: center;
+  margin: 2em;
+  color: var(--b-w);
+  font-size: 1.2em;
+}
+
+.field-k {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  border-radius: 25px;
+  padding: 0.6em;
+  padding-left: 2em;
+
+  color: var(--b-w);
+  background-color: var(--black-17);
+  box-shadow: inset 2px 2px 5px var(--bxshadow);
+}
+
+
+.input-field-k {
+  background: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  color: var(--b-w);
+}
+
+.form-k .btn-k {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.button-k {
+  padding: 0.5em;
+  padding-left: 1.1em;
+  padding-right: 1.1em;
+  border-radius: 5px;
+  margin-right: 0.5em;
+  border: none;
+  outline: none;
+  transition: .4s ease-in-out;
+  background-color: #252525;
+  color: white;
+}
+
+.button-k:hover {
+  background-color: black;
+  color: white;
 }

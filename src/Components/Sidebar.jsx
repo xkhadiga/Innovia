@@ -73,7 +73,8 @@ function Sidebar() {
             />
           </div>
         </div>
-      )}
+      ) }
+
       {settingsToggle && (
         <div
           onClick={() => setSettingsToggle(false)}

@@ -25,6 +25,7 @@
   --stngsmenu-hover:#343d39;
 --acc-menu:white;
 --st-menu-bg:rgb(255,255,255,.4);
+--black-17:#e6e5e5;
 
 }
 .darktheme{
@@ -44,8 +45,7 @@
   --stngsmenu-hover:white;
   --acc-menu:rgb(0,0,0,.9);
   --st-menu-bg:rgb(0,0,0,.4);
-
-
+  --black-17:#171717;
 
 }
 
