@@ -83,7 +83,7 @@ function Home() {
   return (
     <>
     <div className='relative overflow-hidden my-2  max-w-[100%] '>
-      
+
       {visible && (
         <Up />
       )}
@@ -93,7 +93,9 @@ function Home() {
         </div> */}
         <div className='flex-1 mx-1 lg:mx-2 w-[85%] lg:w-[95%] flex flex-col '>
           <MainSlider />
-          <Circles />
+          <div className='smscreens' >
+            <Circles />
+          </div>
           <Section data={FirstData} category='Kitchen Accessories' />
           <Ad ad1={ad2} />
           <Section data={SecondData} category='Groceries' />

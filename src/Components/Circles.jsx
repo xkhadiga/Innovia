@@ -35,7 +35,7 @@ const prevSlide = () => {
   return (
 <div 
 
-className='circles-container flex  my-2  relative  w-[95%] mx-auto overflow-hidden justify-center items-center '>
+className='circles-container flex my-2  relative  w-[95%] mx-auto overflow-hidden justify-center items-center '>
       <button
         onClick={prevSlide}
         className="circles-btn text-3xl z-10 absolute left-0 lg:left-20 disabled:opacity-50 disabled:scale-1"

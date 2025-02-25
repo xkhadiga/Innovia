@@ -27,9 +27,11 @@ function Category() {
 
     return (
         <div>
-            <section className='main-section flex flex-col justify-center my-3 rounded-xl p-2 mx-auto w-[95%]'>
+            <section className='main-section flex flex-col justify-center my-8 rounded-xl p-5 mx-auto w-[95%]'>
+                <h1 className='section-hds text-center text-xl m-2 font-bold'>
+                {name}
+                </h1>
                 <div className='flex flex-wrap justify-center '>
-                    
                     {data.map((product)=>
                     <Card key={product.id} product={product}/>
                     )}

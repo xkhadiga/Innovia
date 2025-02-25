@@ -5,17 +5,19 @@ export const ThemeContext = createContext();
 export function ThemeProvider  ({children}) {
     const [theme, setTheme] = useState(false);
     useEffect(() => {
-        const theme = localStorage.getItem('theme');
-        if (theme === 'true') {
+        const stored_theme = localStorage.getItem('innovatheme');
+        if (stored_theme === 'true') {
             setTheme(true);
+            document.documentElement.classList.add("darktheme"); 
+
         }
     }, []);
     const handle_theme = () => {
+        const newTheme = !theme;
+        setTheme(newTheme);
+        localStorage.setItem('innovatheme', newTheme);
         const root = document.documentElement;
         root.classList.toggle("darktheme");
-        setTheme(!theme);
-        localStorage.setItem('theme', theme);
-
     };
 
 

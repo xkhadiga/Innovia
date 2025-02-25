@@ -13,7 +13,7 @@ function Up() {
         <Link to="section1" smooth={true} duration={500}>
         <button
         //   onClick={() => handle_up()}
-          className='up-btn text-2xl fixed z-50 bottom-5 right-5 '>
+          className='up-btn text-2xl fixed z-50 bottom-20 right-2 sm:bottom-5 sm:right-5 '>
           <FaCaretSquareUp />
         </button>
         </Link>

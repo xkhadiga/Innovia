@@ -66,7 +66,7 @@ function Cart() {
               >
                 {/* Justify product info in small screens */}
                 {/* Small Screens Image & Delete Product */}
-                <div className="flex items-center justify-center">
+                <div className="flex flex-row-reverse items-center justify-center">
                   <img
                     className="flex sm:hidden sm:w-[85%]"
                     src={product.thumbnail}
@@ -74,7 +74,7 @@ function Cart() {
                   />
                   <button
                     onClick={() => dispatch(remove_item(product))}
-                    className="flex sm:hidden text-red-700 text-lg cursor-pointer p-2  shadow-sm rounded-lg self-start my-5"
+                    className="flex sm:hidden text-red-700 text-sm cursor-pointer p-2  shadow-sm shadow-[#0c0c0c] rounded-lg self-start my-5"
                   >
                     <FaTrashCan />
                   </button>
@@ -156,7 +156,7 @@ function Cart() {
 
           <div
             id="subtotal"
-            className="subtotal border fixed flex flex-col items-center justify-center right-5  bottom-15 sm:bottom-5 rounded-lg shadow-sm shadow-[#6e6d6d] z-10"
+            className="subtotal border fixed flex flex-col items-center justify-center sm:right-5  bottom-15 sm:bottom-10 rounded-lg shadow-sm shadow-[#6e6d6d] z-10"
           >
             <button
               className="sub-btn absolute top-0 right-0 text-xl p-2"

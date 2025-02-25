@@ -11,19 +11,14 @@ import Register from "./Register";
 import { useContext } from "react";
 import { LoginContext } from "../Context/LoginContext";
 import { RegisterContext } from "../Context/RegisterContext";
+import { BarContext } from "../Context/BarContext";
+import { PiSunBold } from "react-icons/pi";
+import { IoMoon } from "react-icons/io5";
+
 
 function Nav() {
 
-  const [savedImage, setSavedImage] = useState(null);
-  // get avatar on start
-  useEffect(() => {
-    const avatar = localStorage.getItem("avatar");
-    if (avatar !== null) {
-      setSavedImage(avatar);
-    } else {
-      setSavedImage(null);
-    }
-  }, []);
+
 
   const navigate = useNavigate();
   const [keyword, setKeyword] = useState("");
@@ -45,43 +40,15 @@ function Nav() {
   const handle_account = () => {
     setAccount(!account);
   };
-  // handle avatar
-  const [avatar, setAvatar] = useState(false);
-  const handle_avatar = () => {
-    setAvatar(true);
-  };
+
   //   handle settings toggler
   const [settings, setSettings] = useState(false);
   const handle_settings = () => {
     setSettings(!settings);
     setAccount(false);
   };
-  // uploading profile avatar (react-avatar-edit)
-  const [preview, setPreview] = useState(null);
-  const [msrc, setMsrc] = useState(null);
-  const onClose = () => {
-    setPreview(null);
-  };
-  const onCrop = (preview) => {
-    setPreview(preview);
-  };
-  // saving avatar & delete
-  const handle_save = () => {
-    if (preview !== null) {
-      setSavedImage(preview);
-      localStorage.setItem("avatar", preview);
-      setAvatar(false);
-    } else {
-      setSavedImage(null);
-      localStorage.removeItem("avatar");
-      setAvatar(false);
-    }
-  };
-  const handle_delete_avatar = () => {
-    setPreview(null);
-    setSavedImage(null);
-    localStorage.removeItem("avatar");
-  };
+// handleAvatar
+const { savedImage,setSavedImage, avatar, setAvatar, handle_avatar,preview, setPreview,msrc, setMsrc, onClose,onCrop,handle_save,handle_delete_avatar } = useContext(BarContext)
 
   //  handle theme
   const { handle_theme, theme } = useContext(ThemeContext);
@@ -90,7 +57,7 @@ const {login, setLogin, handle_login} = useContext(LoginContext);
   // handle register
   const {register, setRegister, handle_register} = useContext(RegisterContext);
   return (
-    <nav className="navbar relative w-full h-[10vh] flex items-center justify-between px-2 sm:px-10 top-0  z-50 ">
+    <nav className="navbar relative w-full max-w-full h-[10vh] flex items-center justify-between px-2 sm:px-10 top-0  z-50 ">
       {/* settings toggle ****************** */}
       {settings && (
         <div
@@ -102,10 +69,19 @@ const {login, setLogin, handle_login} = useContext(LoginContext);
             className="settings-menu bg-[rgb(255,255,255,.4)]  p-6 rounded-lg drop-shadow-2xl backdrop-blur-sm mx-auto flex flex-col gap-4"
           >
             <button
-              className="flex itemsc-center justify-center gap-4 "
+              className="flex items-center justify-center gap-4 "
               onClick={() => handle_theme()}
             >
               Change Theme
+                            {theme ? (
+                              <span className="sidebar-moon">
+                                <IoMoon />
+                              </span>
+                            ) : (
+                              <span className="sidebar-sun ">
+                                <PiSunBold />
+                              </span>
+                            )}
             </button>
             <button onClick={() => handle_avatar()}>
               Change Profile Picture
@@ -148,50 +124,51 @@ const {login, setLogin, handle_login} = useContext(LoginContext);
           </div>
         </div>
       )}
-      <div className="flex flex-1 items-center justify-start ">
+      {/* Logo & Name *********** */}
+      <div className="smscreens flex-1 items-center justify-start ">
         <Link to="/">
-          <img className=" w-8 sm:w-10 " src={logo} alt="Store logo" />
+          <img className=" w-7 sm:w-10 " src={logo} alt="Store logo" />
         </Link>
       </div>
       <Link
         to="/"
-        className="logo flex items-center justify-center flex-1 text-xl font-bold"
+        className="logo flex items-center justify-start sm:justify-center flex-1 text-lg lg:text-xl mx-2 font-bold "
       >
         Innovia
       </Link>
-      <div className="hidden flex-1 items-center justify-end sm:flex  gap-3 text-xl">
-        <input
+      {/* Search - Favorites - Cart - Account *********** */}
+      <div className="flex-1 items-center justify-end flex  sm:gap-3 text-lg lg:text-xl">
+      {/* Search Input *********** */}
+      <input
           onChange={(e) => setKeyword(e.target.value)}
           onKeyDown={handle_nav}
           id="searchinp"
           placeholder="Search..."
-          className="nav-search w-0 bg-white rounded-lg caret"
+          className="nav-search w-0 bg-white  rounded-lg caret lg:text-lg"
           type="text"
         />
-
-        <div
-          onClick={() => handle_search()}
-          className="flex items-center justify-center gap-1"
-        >
-          <button className="hover:scale-[1.1] text-2xl">
+          <button 
+           onClick={() => handle_search()}
+          className="nav-search-icon hover:scale-[1.1] text-xl mx-3 sm:mx-0 sm:text-lg ">
             <IoSearchSharp />
           </button>
-        </div>
-        <span className="divider">|</span>
 
+        <span className="smscreens divider">|</span>
+        {/* Favorites link ************** */}
         <button
           onClick={() => navigate("/favorites")}
-          className="flex items-center justify-center gap-1"
+          className="smscreens  items-center justify-center gap-1"
         >
-          <span>favorites</span>
+          <span >favorites</span>
           <span className="text-2xl">
             <IoHeart />
           </span>
         </button>
-        <span className="divider">|</span>
+        <span className="divider smscreens">|</span>
+        {/* Cart link **************** */}
         <button
           onClick={() => navigate("/cart-items")}
-          className="flex items-center justify-center gap-1"
+          className="smscreens items-center justify-center gap-1"
         >
           <span>cart</span>
 
@@ -206,10 +183,11 @@ const {login, setLogin, handle_login} = useContext(LoginContext);
             )}
           </span>
         </button>
-        <span className="divider">|</span>
+        <span className="divider smscreens">|</span>
+        {/* account menu toggler button ******* */}
         <button
           onClick={() => handle_account()}
-          className="flex items-center justify-center gap-1"
+          className="smscreens items-center  justify-center gap-1"
         >
           <span>account</span>
           {savedImage ? (
@@ -221,8 +199,8 @@ const {login, setLogin, handle_login} = useContext(LoginContext);
               <FaCircleUser />
             </span>
           )}
-          {/* <span className='text-2xl'> <FaCircleUser /> </span> */}
         </button>
+        {/* account drop menu *************** */}
         {account && (
           <div className="account-menu absolute top-12 right-5 flex flex-col items-center justify-center w-40 p-4 h-40 rounded-2xl">
             <button
@@ -245,6 +223,7 @@ const {login, setLogin, handle_login} = useContext(LoginContext);
           </div>
         )}
       </div>
+      {/* Login and Register Menu ************* */}
       { login && (
         <div
           onClick={() => setLogin(false)}

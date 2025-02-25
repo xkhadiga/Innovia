@@ -17,6 +17,9 @@ import Payment from "./Components/Payment";
 import { ThemeProvider } from "./Context/ThemeContext";
 import { LoginProvider } from "./Context/LoginContext";
 import { RegisterProvider } from "./Context/RegisterContext";
+import { BarProvider } from "./Context/BarContext";
+import Bar from "./Components/Bar";
+import Up from "./Components/Up";
 
 function App() {
   const [visible, setVisible] = useState(false);
@@ -45,29 +48,40 @@ function App() {
     <ThemeProvider>
       <RegisterProvider>
         <LoginProvider>
-          {loader ? (
-            <Loader />
-          ) : (
-            <>
-              <Element name="section1">
-                <Nav />
-              </Element>
-              {visible && <Sidebar />}
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/favorites" element={<Favorites />} />
-                <Route path="/cart-items" element={<Cart />} />
-                <Route path="/product/:productName" element={<Item />} />
-                <Route path="/search" element={<Search />} />
-                <Route path="/search/:productName" element={<Search />} />
-                <Route path="/category" element={<Category />} />
-                <Route path="/payment" element={<Payment />} />
-                <Route path="/category/:categoryName" element={<Category />} />
-              </Routes>
+          <BarProvider>
+            {loader ? (
+              <Loader />
+            ) : (
+              <div className="overflow-x-hidden">
+                <Element name="section1">
+                  <div className="main-nav-container max-w-[100%] relative">
+                    <Nav />
+                  </div>
+                </Element>
+                {visible && <Sidebar />}
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/favorites" element={<Favorites />} />
+                  <Route path="/cart-items" element={<Cart />} />
+                  <Route path="/product/:productName" element={<Item />} />
+                  <Route path="/search" element={<Search />} />
+                  <Route path="/search/:productName" element={<Search />} />
+                  <Route path="/category" element={<Category />} />
+                  <Route path="/payment" element={<Payment />} />
+                  <Route
+                    path="/category/:categoryName"
+                    element={<Category />}
+                  />
+                </Routes>
 
-              <ToastContainer />
-            </>
-          )}
+                <div className="lgscreens relative ">
+                  <Bar />
+                </div>
+                {/* {visible && <Up />} */}
+                <ToastContainer />
+              </div>
+            )}
+          </BarProvider>
         </LoginProvider>
       </RegisterProvider>
     </ThemeProvider>
