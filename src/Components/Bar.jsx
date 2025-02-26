@@ -128,7 +128,7 @@ const {  avatar, setAvatar, handle_avatar,preview, setPreview,msrc, setMsrc, onC
           </div>
         </div>
       )}
-      <nav className="bar-sm flex items-center justify-around fixed w-full bottom-0 bg-black h-[10vh]">
+      <nav className="bar-sm flex items-center justify-around fixed w-full bottom-0 bg-black h-[8vh]">
         {/* Favorites */}
         <Link to="section1" smooth={true} duration={500}>
         <button onClick={() => navigate("/favorites")} className="bar-btn">
@@ -159,7 +159,9 @@ const {  avatar, setAvatar, handle_avatar,preview, setPreview,msrc, setMsrc, onC
           </button>
         </Link>
         {/* Categories */}
-        <button className="bar-btn">
+        <button 
+        onClick={() => navigate("/categories", {state: {allowed : true}})} 
+        className="bar-btn">
           <MdOutlineGridView />
         </button>
         {/* Account */}

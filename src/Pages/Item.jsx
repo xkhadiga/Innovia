@@ -57,35 +57,35 @@ function Item() {
 
 
     return (
-        <div className='bg-[rgba(170,170,170,0.5)] py-10 backdrop-blur-lg '>
+        <div className='bg-[rgba(170,170,170,0.5)] py-3 backdrop-blur-lg '>
             <section className='main-section  relative flex flex-col sm:flex-row justify-center  my-3 sm:my-5 rounded-xl p-2 mx-auto w-[85%] shadow-sm shadow-[#b3a9a9] gap-2'>
                 {/*  Image *******************  */}
-                <div className=' bg-white rounded-xl  border border-[#b7dad4] flex flex-1 justify-center items-center'>
+                <div className=' rounded-xl  flex  justify-center items-center'>
                     <img
-                        className=' rounded-lg flex w-full h-fit'
+                        className=' border border-[#b7dad4] p-2 bg-white rounded-lg flex '
                         src={product.thumbnail} alt="product image" />
                 </div>
-                <div className='flex flex-col text-center rounded-2xl  h-full w-full p-3 sm:p-10 border border-[#b7dad4]  flex-1'>
+                <div className='flex flex-col text-center rounded-2xl  h-full w-full p-3  border border-[#b7dad4]  flex-1'>
                     {/* *Title & Description  ******************* * */}
-                    <h1 className='font-bold text-5xl mt-10'>
+                    <h1 className='font-bold text-2xl my-3'>
                         {product.title}
                     </h1>
-                    <p className='text-xl font-medium my-6 sm:my-10'>
+                    <p className='text-lg  my-6 '>
                         {product.description}
                     </p>
-                    <div className='flex flex-col w-[70%] mx-auto gap-3   '>
+                    <div className='flex flex-col w-[70%] mx-auto gap-1   '>
                         {/* Tags ******************* * */}
                         <div className='flex flex-wrap  items-center gap-3 pb-2 border-b border-b-[#b7dad4] text-left'>
                             <h3 className='font-bold'>Tags:</h3>
                             <div className='flex gap-2 flex-wrap justify-center'>
-                                <span className='tag tag-w p-2 rounded-full'>
+                                <span className='tag tag-w p-2 rounded-sm'>
                                     {product.tags[0]}
                                 </span>
-                                <span className='tag tag-w p-2 rounded-full'>
+                                <span className='tag tag-w p-2 rounded-sm'>
                                     {product.tags[1] ? product.tags[1] : product.category}
                                 </span>
                                 {product.tags[2] ?
-                                <span className='tag tag-w p-2 rounded-full'>
+                                <span className='tag tag-w p-2 rounded-sm'>
                                      product.tags[2]  
                                 </span> 
                                 :
@@ -96,7 +96,7 @@ function Item() {
                         <div className='flex flex-wrap  items-center gap-3 pb-2 border-b border-b-[#b7dad4] '>
                             <h3 className='font-bold'>Category:</h3>
                             <div className='flex justify-center'>
-                                <span className='tag tag-w p-2 rounded-full'>
+                                <span className='tag tag-w p-2 rounded-sm'>
                                     {product.category}
                                 </span>
                             </div>
@@ -105,7 +105,7 @@ function Item() {
                         <div className='flex flex-wrap  items-center gap-3 pb-2 border-b border-b-[#b7dad4] '>
                             <h3 className='font-bold'>Return Policy :</h3>
                             <div className='flex justify-center'>
-                                <span className='tag tag-w p-2 rounded-full'>
+                                <span className='tag tag-w p-2 rounded-sm'>
                                     {product.returnPolicy}
                                 </span>
                             </div>
@@ -115,7 +115,7 @@ function Item() {
                             <div className='flex flex-wrap  items-center gap-3 pb-2 border-b border-b-[#b7dad4] '>
                                 <h3 className='font-bold'>Brand :</h3>
                                 <div className='flex justify-center'>
-                                    <span className='tag tag-w p-2 rounded-full'>
+                                    <span className='tag tag-w p-2 rounded-sm'>
                                         {product.brand}
                                     </span>
                                 </div>
@@ -128,7 +128,7 @@ function Item() {
                         <div className='flex flex-wrap  items-center gap-3 '>
                             <h3 className='font-bold'>Stock:</h3>
                             <div className='flex justify-center'>
-                                <span className='tag tag-w p-2 rounded-full'>
+                                <span className='tag tag-w p-2 rounded-sm'>
                                     {product.stock}
                                 </span>
                             </div>

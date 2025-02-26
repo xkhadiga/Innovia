@@ -9,7 +9,7 @@ function Favorites() {
     if (favorites.length === 0 ) {return <EmptyFv />}
     else return (
         <>
-            <section className='main-section flex flex-col justify-center my-8 rounded-xl p-5 mx-auto w-[95%]'>
+            <section className='main-section flex flex-col justify-center my-8 rounded-xl sm:p-5 mx-auto w-[95%]'>
                 <h1 className='section-hds text-center text-xl m-2 font-bold'>
                 Favorites
                 </h1>

@@ -14,12 +14,10 @@ import Search from "./Pages/Search";
 import Category from "./Pages/Category";
 import Loader from "./Components/Loader";
 import Payment from "./Components/Payment";
-import { ThemeProvider } from "./Context/ThemeContext";
-import { LoginProvider } from "./Context/LoginContext";
-import { RegisterProvider } from "./Context/RegisterContext";
-import { BarProvider } from "./Context/BarContext";
+import { Providers } from "./Context/Providers";
 import Bar from "./Components/Bar";
 import Up from "./Components/Up";
+import CategoriesSm from "./Pages/CategoriesSm";
 
 function App() {
   const [visible, setVisible] = useState(false);
@@ -45,10 +43,8 @@ function App() {
     }, 3000);
   }, []);
   return (
-    <ThemeProvider>
-      <RegisterProvider>
-        <LoginProvider>
-          <BarProvider>
+    <Providers>
+
             {loader ? (
               <Loader />
             ) : (
@@ -72,6 +68,7 @@ function App() {
                     path="/category/:categoryName"
                     element={<Category />}
                   />
+                  <Route path="/categories" element={<CategoriesSm />} />
                 </Routes>
 
                 <div className="lgscreens relative ">
@@ -81,10 +78,8 @@ function App() {
                 <ToastContainer />
               </div>
             )}
-          </BarProvider>
-        </LoginProvider>
-      </RegisterProvider>
-    </ThemeProvider>
+
+    </Providers>
   );
 }
 

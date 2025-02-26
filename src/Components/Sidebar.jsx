@@ -109,7 +109,7 @@ function Sidebar() {
 
       <nav
         id="nav"
-        className=" sidebar fixed smscreens flex-col items-start justify-center rounded-lg overflow-hidden top-10 z-40"
+        className=" sidebar fixed smscreens flex-col items-center justify-center px-1 rounded-lg overflow-hidden top-10 z-40"
       >
         {/* Sidebar Logo ******** */}
         <span className="mx-auto my-5">
@@ -118,44 +118,44 @@ function Sidebar() {
         {/* Sidebar Toggler Button */}
         <button
           onClick={() => handle_sidebar()}
-          className="sm:mt-15 mt-5 p-2 gap-2 flex flex-col items-center justify-center text-xl"
+          className="sm:mt-15  py-2 text-xl"
         >
           <TbArrowsDownUp />
         </button>
         {/* All Links Container */}
-        <div className="links-container h-full w-10  flex flex-col my-5 sm:my-10 items-center justify-between gap-2">
+        <div className="links-container h-full   flex flex-col my-5 sm:my-10 items-center justify-between ">
           {/* Home - Search - Cart - Favs */}
-          <div className="flex flex-col items-start justify-start gap-2 w-10 ">
+          <div className="flex flex-col items-start justify-start gap-2  ">
             {/* Home ************* */}
             <Link to="section1" smooth={true} duration={500}>
               <button
                 onClick={() => navigate("/")}
-                className=" flex  items-center gap-4 justify-center"
+                className=" flex  items-center justify-center"
               >
-                <span className="p-2 text-xl">
+                <span className="py-2 text-xl">
                   <IoHome />
                 </span>
-                {/* <span className='border-gray-400 border-b w-32'>Home</span> */}
+
               </button>
             </Link>
             {/* Search ************* */}
             <button
               onClick={() => handle_searchToggle()}
-              className=" flex  items-center gap-4 justify-center"
+              className=" flex  items-center justify-center"
             >
-              <span className="p-2 text-xl">
+              <span className="py-2 text-xl">
                 <IoSearchSharp />
               </span>
             </button>
             {/* Cart ************* */}
             <button
               onClick={() => navigate("/cart-items")}
-              className=" flex  items-center gap-4 justify-center"
+              className=" flex  items-center justify-center"
             >
-              <span className="p-2 text-xl relative">
+              <span className="py-2 text-xl relative">
                 <IoCart />
                 {cart_items.length >= 1 ? (
-                  <span className="bg-amber-400 flex w-5 h-5  text-sm items-center justify-center  rounded-full absolute -top-2 right-0">
+                  <span className="bg-amber-400 text-black flex w-5 h-5  text-sm items-center justify-center  rounded-full absolute -top-2 right-0">
                     {cart_items.length}
                   </span>
                 ) : (
@@ -166,19 +166,19 @@ function Sidebar() {
             {/* Favorites ************* */}
             <button
               onClick={() => navigate("/favorites")}
-              className=" flex  items-center gap-4 justify-center"
+              className=" flex  items-center justify-center"
             >
-              <span className="p-2 text-xl">
+              <span className="py-2 text-xl">
                 <IoHeart />
               </span>
             </button>
           </div>
           {/*Theme Icon - Settings - Account */}
-          <div>
+          <div className="flex flex-col gap-2 items-center justify-center">
             {/* Theme Icon */}
             <button
             onClick={handle_theme}
-            className=" p-2 flex items-center justify-center">
+            className=" py-2 flex items-center justify-center">
               {theme ? (
                 <span className="sidebar-moon">
                   <IoMoon />
@@ -192,7 +192,7 @@ function Sidebar() {
             {/* Settings */}
             <button
               onClick={() => handle_settings()}
-              className=" p-2 flex items-center justify-center"
+              className=" py-2 flex items-center justify-center"
             >
               <IoSettings />
             </button>
@@ -203,7 +203,7 @@ function Sidebar() {
                   <img src={savedImage} alt="avatar" />
                 </div>
               ) : (
-                <span className="p-2  flex items-center justify-center">
+                <span className="py-2  flex items-center justify-center">
                   <FaUser />
                 </span>
               )}

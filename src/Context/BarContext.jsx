@@ -6,7 +6,7 @@ export const BarProvider = ( {children} ) => {
      // handle settings toggler
   const [settingsToggle, setSettingsToggle] = useState(false);
   const handle_settings = () => {
-    setSettingsToggle(true);
+    setSettingsToggle(!settingsToggle);
   };
 
 //  handle avatar

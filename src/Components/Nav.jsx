@@ -175,7 +175,7 @@ const {login, setLogin, handle_login} = useContext(LoginContext);
           <span className="relative text-2xl">
             <FaCartShopping />
             {cart_items.length >= 1 ? (
-              <span className="bg-amber-400 flex w-5 h-5  text-lg items-center justify-center  rounded-full absolute -top-3 -right-2">
+              <span className="bg-amber-400 flex w-5 h-5 text-black  text-lg items-center justify-center  rounded-full absolute -top-3 -right-2">
                 {cart_items.length}
               </span>
             ) : (

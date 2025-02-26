@@ -2,8 +2,10 @@
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
 :root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
   transition: all .3s ease;
   scroll-behavior: smooth;
   max-width: 100%;
@@ -30,7 +32,8 @@
 --mycircle:#fcf26d;
 --circleloader:#f1e047;
 --bar-bg: #9dbdba;
---bar-btn:#16201d;
+--bar-bg: #c3dfdc;
+--bar-btn:#010c09;
 
 }
 .darktheme{
