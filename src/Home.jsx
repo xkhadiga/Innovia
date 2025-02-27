@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { useState, useEffect } from 'react'
 import MainSlider from './Components/MainSlider'
 import Ad from './Components/Ad'
@@ -7,6 +8,7 @@ import axios from 'axios'
 import SmallSection from './Sections/SmallSection'
 import Up from './Components/Up'
 import Circles from './Components/Circles'
+
 
 
 

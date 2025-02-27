@@ -1,23 +1,27 @@
 import "./App.css";
-import Home from "./Home";
-import Nav from "./Components/Nav";
+import { Suspense, lazy, useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Favorites from "./Pages/Favorites";
 import { Element } from "react-scroll";
-import Sidebar from "./Components/Sidebar";
-import { useEffect, useState } from "react";
-import Cart from "./Pages/Cart";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Item from "./Pages/Item";
-import Search from "./Pages/Search";
-import Category from "./Pages/Category";
+
+// Core Components
+import Nav from "./Components/Nav";
 import Loader from "./Components/Loader";
-import Payment from "./Components/Payment";
-import { Providers } from "./Context/Providers";
-import Bar from "./Components/Bar";
 import Up from "./Components/Up";
-import CategoriesSm from "./Pages/CategoriesSm";
+import { Providers } from "./Context/Providers";
+
+// Lazy-loaded Pages (for better performance)
+const Home = lazy(() => import("./Home"));
+const Favorites = lazy(() => import("./Pages/Favorites"));
+const Cart = lazy(() => import("./Pages/Cart"));
+const Sidebar = lazy(() => import("./Components/Sidebar"));
+const Bar = lazy(() => import("./Components/Bar"));
+const Item = lazy(() => import("./Pages/Item"));
+const Search = lazy(() => import("./Pages/Search"));
+const Category = lazy(() => import("./Pages/Category"));
+const Payment = lazy(() => import("./Components/Payment"));
+const CategoriesSm = lazy(() => import("./Pages/CategoriesSm"));
 
 function App() {
   const [visible, setVisible] = useState(false);
@@ -35,26 +39,24 @@ function App() {
     };
   }, []);
 
-  const [loader, setLoader] = useState(true);
+  // const [loader, setLoader] = useState(true);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoader(false);
-    }, 3000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setLoader(false);
+  //   }, 3000);
+  // }, []);
   return (
     <Providers>
-
-            {loader ? (
-              <Loader />
-            ) : (
+                {visible && <Sidebar />}
+                <Suspense fallback={<Loader />}>
               <div className="overflow-x-hidden">
                 <Element name="section1">
                   <div className="main-nav-container max-w-[100%] relative">
                     <Nav />
                   </div>
                 </Element>
-                {visible && <Sidebar />}
+
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/favorites" element={<Favorites />} />
@@ -71,14 +73,14 @@ function App() {
                   <Route path="/categories" element={<CategoriesSm />} />
                 </Routes>
 
+
                 <div className="lgscreens relative ">
                   <Bar />
                 </div>
                 {/* {visible && <Up />} */}
                 <ToastContainer />
               </div>
-            )}
-
+              </Suspense>
     </Providers>
   );
 }

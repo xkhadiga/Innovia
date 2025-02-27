@@ -1,23 +1,19 @@
-import React, { useState, useEffect } from 'react'
-import { FaCaretSquareUp } from 'react-icons/fa'
-import { Link } from 'react-scroll';
-
+import React from "react";
+import { Link } from "react-scroll";
 
 function Up() {
-
-    // const handle_up = () => {
-    //     document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
-    // }
-
-    return (
-        <Link to="section1" smooth={true} duration={500}>
-        <button
+  return (
+    <Link to="section1" smooth={true} duration={500}>
+      <button
         //   onClick={() => handle_up()}
-          className='up-btn text-2xl fixed z-50 bottom-20 right-2 sm:bottom-5 sm:right-5 '>
-          <FaCaretSquareUp />
-        </button>
-        </Link>
-    )
+        className="up-btn text-2xl fixed z-50 bottom-20 right-2 sm:bottom-5 sm:right-5 "
+      >
+<svg width="1.5rem" height="1.5rem" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+  <path fill="currentColor" d="M18.1818182,0 C19.1859723,0 20,0.814027728 20,1.81818182 L20,18.1818182 C20,19.1859723 19.1859723,20 18.1818182,20 L1.81818182,20 C0.814027728,20 0,19.1859723 0,18.1818182 L0,1.81818182 C0,0.814027728 0.814027728,0 1.81818182,0 L18.1818182,0 Z M9.51942697,7.61708699 L5.62443516,11.4872305 C5.35731792,11.7526437 5.35593648,12.1843449 5.62134964,12.4514621 C5.8867628,12.7185794 6.31846398,12.7199608 6.58558122,12.4545476 L10.0046519,9.05728911 L13.4956665,12.4591989 C13.7653526,12.7220015 14.1970199,12.7164213 14.4598225,12.4467352 C14.7226251,12.1770492 14.7170449,11.7453818 14.4473588,11.4825793 L10.4758462,7.61243574 C10.2092302,7.35262491 9.78350334,7.35469531 9.51942697,7.61708699 Z"/>
+</svg>
+      </button>
+    </Link>
+  );
 }
 
-export default Up
+export default Up;
